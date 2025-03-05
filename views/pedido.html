@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REGISTRO USUARIOS</title>
+    <title>REGISTRO PEDIDOS</title>
 
     <!-- <link rel="stylesheet" href="/css/styles.css"> -->
 
@@ -226,7 +226,7 @@ body {
 
 <body>
     <header>
-        <h1>Bienvenido al registro de usuarios</h1>
+        <h1>Solicitud de PEDIDOS</header>Rellena los dartos para reealizar tu pedido</h1>
     </header>
 
     <nav>
@@ -243,7 +243,7 @@ body {
 <section class="section-container">
 
     <div class="gallery-item item-columspan3" >
-        <h1>Desarrollo WEB UTF 1842</h1>
+        <h1>PEDIDOS</h1>
     </div>
 
     <div class="gallery-item item-columspan" >
@@ -253,47 +253,42 @@ body {
     <!-- Mostar en la caja   FIN-->
 
 
-<form action="/registro" method="POST">
+<form action="/pedido" method="POST">
 
     <div class="gallery-item">
 
-            <div>
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required>
-            </div>
+        <div>
+            <label for="articulo">Articulo:</label>
+            <select name="articulo" id="articulo">
+                <option value="0"></option>
+                <option value="1">Ordenador</option>
+                <option value="2">Telefono Movil</option>
+                <option value="3">Videoconsola</option>
+                <option value="4">Laptop</option>
+                <option value="5">Dron</option>
+                <option value="6">SmartRing</option>
+                <option value="7">Radio</option>
+            </select>
+        </div>
 
             <div>
-                <label for="usuario">Usuario:</label>
-                <input type="text" id="usuario" name="usuario" required>
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" id="cantidad" name="cantidad" required>
             </div>
 
             <div>
-                <label for="password">Contraseña:</label>
-                <input type="password" id="password" name="password" required>
+                <label for="presupuesto">Presupuesto:</label>
+                <input type="number" id="presupuesto" name="presupuesto" required>
             </div>
 
             <div>
-                <label for="password1">Repite tu Contraseña:</label>
-                <input type="password" id="password1" name="password1" required>
+                <label for="email">Tu Correo Electronico:</label>
+                <input type="email" id="email" name="email" required>
             </div>
 
-            <div>
-                <h6><a href="">Olvidaste tu Usuario y/o Contraseña</a></h6>
-            </div>
+  
 
-            <div id="polipriv">
-                <input type="checkbox" id="politicaPrivacidad">
-                <h5><a target="_blank" href="00politica_privacidad.txt">Política de Privacidad</a></h5>
-            </div>
-
-            <div id="robotCheck">
-                <input type="checkbox" onchange="manejarCheckbox.call(this)">
-                <img width="150px" id="robot" src="https://raw.githubusercontent.com/Jrpm60/images/refs/heads/main/Robot.PNG" alt="Image 8">
-            </div>
-
-            <progress id="barraProgreso" value="0" max="100"></progress>
-
-            <p id="cargando">Cargando... <span id="valorProgreso">0</span>%</p>
+ 
                 
             <script>
                 function actualizarProgreso(valor) {

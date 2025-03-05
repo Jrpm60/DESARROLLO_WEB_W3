@@ -23,9 +23,43 @@ app.use(logger)
 
 // Middleware ______________________________
 
-
-
 app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'adivinanza.html')); 
+  });
+
+  //prueba para captar querystrings
+
+  app.get('/querystring', (req, res) => {
+    console.log("querystring");
+    res.json({resultado: 'ok'})
+    console.log(`${req.url} y ${req.method}`);
+
+  // obtener querystings
+    console.log(req.query);
+    const {nombre, edad, pais} =req.query ;
+
+
+    if (nombre && edad) {
+        console.log("Tenemos los Tres querystrings");
+        console.log(`${nombre} y ${edad} y ${pais}`);
+    }
+    else {
+        console.log("Ojo, no tenemos los tres QueryStrings");
+    }
+
+});
+
+
+
+app.get('/win', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'win.html')); 
+});
+
+app.get('/lose', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'lose.html')); 
+});
+
+app.get('/registro', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'registro_usu.html')); 
 });
 
@@ -40,13 +74,10 @@ app.post('/registro', (req, res) => {
 
     if (password === password1) {
         if (password === "11" && usuario === "pp") {
-            //res.json({Resultado: 'Acceso permitido'});
-            res.sendFile(path.join(__dirname, 'views', 'registro_usu_priv.html'));
-          
+            res.json({Resultado: 'Acceso permitido'});
         }
         else {
-            //res.json({Resultado: 'Acceso RECHAZADO'});
-            res.sendFile(path.join(__dirname, 'views', 'registro_usu_rech.html'));
+            res.json({Resultado: 'Acceso RECHAZADO'});
         }
     }
     else {
@@ -57,6 +88,12 @@ app.post('/registro', (req, res) => {
 
      
 });
+
+
+
+
+
+
 
 
 app.use((req, res) => {
