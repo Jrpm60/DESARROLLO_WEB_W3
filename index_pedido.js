@@ -58,7 +58,7 @@ app.post('/pedido', (req, res) => {
     console.log(`presupuesto ${presupuesto}`)
     console.log(`email ${email}`)
 
-  /*   const now = new Date();
+  /*const now = new Date();
     const dateTimeString =now.toLocaleString();
     const dataString =`${dateTimeString}, ${validacion}, ${Object.values(formData).join(', ')}\n`;
     console.log(`dataString ${dataString}`)
