@@ -31,6 +31,7 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'pedido.html')); 
 });
 
+
 app.get('/pedido1', (req, res) => {
 
     const data = {
@@ -86,6 +87,18 @@ app.post('/pedido', (req, res) => {
          
     });
 
+    app.get('/welcome',(req,res) => {
+        
+        const user = {
+            isAdmin: true
+        }
+        res.render('welcome', {user});
+
+
+    })
+
+
+    
 app.use((req, res) => {
     res.status(404).send('Error pagina no existe')
 });

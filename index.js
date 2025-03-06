@@ -29,6 +29,16 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'registro_usu.html')); 
 });
 
+
+app.get('/bucle', (req, res) => {
+    const numeros =  [1,6,7,3,78,99];
+    res.render("bucle",{numeros})
+});
+
+
+
+
+
 app.post('/registro', (req, res) => {
     console.log('POST');
     const {nombre, usuario, password, password1 } = req.body;
