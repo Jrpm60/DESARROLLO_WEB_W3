@@ -23,21 +23,20 @@ app.use(logger)
 
 // Middleware ______________________________
 
+app.get('/parcial', (req, res) => {
+    res.render("parcial"); 
+});
+
 
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'registro_usu.html')); 
 });
 
-
 app.get('/bucle', (req, res) => {
     const numeros =  [1,6,7,3,78,99];
     res.render("bucle",{numeros})
 });
-
-
-
-
 
 app.post('/registro', (req, res) => {
     console.log('POST');
@@ -62,9 +61,6 @@ app.post('/registro', (req, res) => {
     else {
         res.json({Resultado: 'Las contraseñas no coinciden'});
     }  
-
-       
-
      
 });
 

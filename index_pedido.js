@@ -27,6 +27,12 @@ app.use(logger)
 
 // Middleware ______________________________
 
+
+app.get('/parcial', (req, res) => {
+    res.render("parcial"); 
+});
+
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'pedido.html')); 
 });
